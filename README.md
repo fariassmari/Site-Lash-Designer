@@ -1,5 +1,6 @@
 # Site-Lash-Designer
 Ana Júlia Lash Designer é um site profissional voltado para divulgação dos serviços de extensão e design de cílios, oferecendo um espaço elegante e funcional onde clientes podem conhecer o portfólio, agendar horários e entrar em contato. O site transmite sofisticação e confiança, refletindo o cuidado e o detalhe que cada atendimento oferece.
+
 # Ana Júlia Lash Designer 💖
 
 Este é o site oficial da Ana Júlia, especialista em extensão e design de cílios. A proposta é apresentar os serviços com elegância, promover o agendamento de atendimentos e fortalecer a presença online da marca.
@@ -19,9 +20,8 @@ Este é o site oficial da Ana Júlia, especialista em extensão e design de cíl
 
 ## 🛠️ Tecnologias Utilizadas
 
-- HTML & CSS
-- JavaScript
-- Integração com Google Maps
+- HTML
+- CSS
 
 ---
 
