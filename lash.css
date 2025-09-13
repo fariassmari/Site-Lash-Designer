@@ -1,3 +1,10 @@
+:root {
+  --cor-principal: rgb(227, 112, 190);
+  --cor-fundo: #575555;
+  --cor-texto: #f5f3f3;
+  --cor-destaque: #d63384;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -6,20 +13,22 @@
 
 body{
   font-family: 'Arial', sans-serif;
-  background-color: #575555;
+  background-color: var(--cor-fundo);
   color: #f5f3f3;
 }
 
 .cabecalho {
   height: 100px;
-  background-color: rgb(227, 112, 190);
+  background-color: var(--cor-principal);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 60px;
-  border-bottom: 1px solid #282828;
-  position: relative;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .cabecalho .logo {
@@ -70,21 +79,6 @@ body{
   width: 100%;
 }
 
-.home {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  padding: 20px;
-  color: #fff;
-  overflow: hidden;
-  border: 1.5px solid black;
-  background-color: #000; /* fallback para o caso de não carregar a imagem */
-}
-
 .home .banner {
   position: absolute;
   top: 0;
@@ -116,17 +110,33 @@ body{
   text-align: center;
 }
 
+.home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 600px; /* Altura ideal para celulares */
+  padding: 20px;
+  color: #fff;
+  overflow: hidden;
+  border: 1.5px solid black;
+  background-color: #000;
+  margin-top: 100px; 
+}
+
 .home .titulo {
   font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
+  font-size: 2.5rem; /* Título menor para celulares */
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #f6abd0;;
+  color: var(--cor-principal);
 }
 
 .home .texto {
   font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
+  font-size: 1rem; /* Texto menor para celulares */
   font-weight: 700;
   max-width: 700px;
   margin-bottom: 2rem;
@@ -137,8 +147,8 @@ body{
 
 .home .botao {
   display: inline-block;
-  background-color: #f3e8eb;
-  color: #444;
+  background-color: rgb(227, 112, 190);
+  color: #fff;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 500;
@@ -149,9 +159,9 @@ body{
 }
 
 .home .botao:hover {
-  background-color: #ec4899;
-  color: #fff;
-  border-color: #ec4899;
+  background-color: var(--cor-texto);
+  color: var(--cor-destaque);
+  border-color: var(--cor-principal);
 }
 
 .sobre {
@@ -197,7 +207,7 @@ body{
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 1px;
-  color: #ec4899;
+  color: var(--cor-destaque);
   font-weight: bold;
   display: block;
   margin-bottom: 10px;
@@ -211,7 +221,7 @@ body{
   
 .sobre-conteudo .destaque {
   font-weight: bold;
-  color: #d63384;
+  color: var(--cor-destaque);
   margin-bottom: 10px;
 }
   
@@ -238,20 +248,23 @@ body{
   
   /* Responsivo */
 @media (max-width: 768px) {
-    .sobre-container {
-      flex-direction: column;
-      text-align: center;
-      padding: 30px;
-    }
+  .sobre{
+    padding: 40px 20px;
+  }
+  .sobre-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
   
-    .sobre-conteudo {
-      margin-top: 30px;
-    }
+  .sobre-conteudo {
+    margin-top: 10px;
+  }
 }
 
 .servicos {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #d46fc3, #c777b9, #a855f7);
+  background: linear-gradient(135deg, var(--cor-destaque), #c777b9, #a855f7);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
   text-align: center;
@@ -337,7 +350,7 @@ body{
   
 .container-localizacao h2 {
   font-size: 28px;
-  color: #ec4899; 
+  color: var(--cor-destaque); 
   margin-bottom: 10px;
 }
   
@@ -370,90 +383,126 @@ body{
 }
 
 footer {
-  /*background-color: rgb(222, 102, 184);*/
   background-color: rgb(227, 112, 190);
   color: #fff;
-  text-align: center;
-  padding: 20px;
+  padding: 50px 20px;
+  font-family: 'Arial', sans-serif;
 }
 
-footer p {
-  margin: 10px 0 0;
-}
-
-.redes-sociais {
+.rodape-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.redes-sociais a {
+.rodape-coluna {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.logo-rodape img {
+  width: 150px;
+  height: auto;
+}
+
+.rodape-coluna h4 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.rodape-links {
+  list-style: none;
+  padding: 0;
+}
+
+.rodape-links li a,
+.rodape-coluna p,
+.wpp-rodape {
   color: #fff;
-  font-size: 1.8rem;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 0.95rem;
+  line-height: 1.8;
   transition: color 0.3s ease;
 }
 
-.redes-sociais a:hover {
-  color: #000000;
+.rodape-links li a:hover,
+.wpp-rodape:hover {
+  color: #000;
 }
 
-@media (max-width: 1024px) {
-  header nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  section {
-    padding: 20px;
-  }
+.wpp-rodape {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
 }
 
-/* Celulares (até 768px) */
+.rodape-copy {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.rodape-copy p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.redes-sociais {
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.redes-sociais a {
+  font-size: 1.5rem;
+}
+
+/* Responsividade do rodapé */
 @media (max-width: 768px) {
-  header {
+  .rodape-container {
+    flex-direction: column;
     text-align: center;
   }
+}
 
-  header nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+@media (min-width: 768px) {
+  .home {
+    height: 75vh; /* Usa 75% da altura da tela em tablets */
   }
 
-  main {
-    padding: 15px;
+  .home .titulo {
+    font-size: 3rem; /* Título maior */
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  p {
-    font-size: 1rem;
+  .home .texto {
+    font-size: 1.15rem; /* Texto maior */
   }
 }
 
-/* Celulares pequenos (até 480px) */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.4rem;
+@media (min-width: 1024px) {
+  .cabecalho {
+    padding: 0 60px;
   }
 
-  p {
-    font-size: 0.9rem;
+  .cabecalho .menu {
+    gap: 40px;
   }
 
-  button {
-    width: 100%;
+  .home {
+    height: 90vh; /* Ocupa 90% da altura da tela em desktops */
+  }
+
+  .home .titulo {
+    font-size: 3.5rem; /* Volta ao tamanho original ou um pouco maior */
+  }
+
+  .home .texto {
+    font-size: 1.25rem; /* Volta ao tamanho original */
   }
 }
