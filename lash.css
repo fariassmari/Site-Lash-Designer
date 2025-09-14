@@ -1,8 +1,9 @@
 :root {
-  --cor-principal: rgb(227, 112, 190);
-  --cor-fundo: #575555;
-  --cor-texto: #f5f3f3;
-  --cor-destaque: #d63384;
+  --cor-principal: #333333;      /* Cinza escuro para cabeçalho e rodapé */
+  --cor-fundo: #f0f0f0;          /* Cinza claro para o fundo do corpo */
+  --cor-texto: #1a1a1a;          /* Preto/quase preto para textos */
+  --cor-destaque: #000000;       /* Preto sólido para destaques e hover */
+  --cor-sub-fundo: #ffffff;      /* Branco puro para caixas de conteúdo, como o 'Sobre' */
 }
 
 *{
@@ -12,9 +13,9 @@
 }
 
 body{
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: var(--cor-fundo);
-  color: #f5f3f3;
+  color: var(--cor-texto);
 }
 
 .cabecalho {
@@ -28,7 +29,7 @@ body{
   top: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
 }
 
 .cabecalho .logo {
@@ -38,9 +39,10 @@ body{
 }
 
 .cabecalho .logo img {
-  width: 120px;
+  width: 200px;
   height: auto;
-  margin: 0;
+  margin-top: 10px;
+  padding: 10px;
 }
 
 .wpp-icon {
@@ -57,7 +59,7 @@ body{
 .cabecalho .menu li a {
   font-size: 1rem;
   font-weight: 600;
-  color: #f8f8f8;
+  color: #fff;
   text-decoration: none;
   padding-bottom: 5px;
   transition: all 0.3s ease;
@@ -71,7 +73,7 @@ body{
   bottom: -2px;
   width: 0;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--cor-fundo);
   transition: width 0.3s ease;
 }
 
@@ -119,23 +121,23 @@ body{
   width: 100%;
   height: 600px; /* Altura ideal para celulares */
   padding: 20px;
-  color: #fff;
+  color: var(--cor-texto);
   overflow: hidden;
-  border: 1.5px solid black;
+ 
   background-color: #000;
   margin-top: 100px; 
 }
 
 .home .titulo {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem; /* Título menor para celulares */
+  font-size: 2.5rem; 
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--cor-principal);
+  color: #c7c5c5;
 }
 
 .home .texto {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', sans-serif;
   font-size: 1rem; /* Texto menor para celulares */
   font-weight: 700;
   max-width: 700px;
@@ -147,25 +149,25 @@ body{
 
 .home .botao {
   display: inline-block;
-  background-color: rgb(227, 112, 190);
-  color: #fff;
+  background-color: var(--cor-sub-fundo);
+  color: var(--cor-texto);
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 500;
   font-size: 1rem;
   text-decoration: none;
-  border: 1px solid #e5d3da;
+  border: 1px solid var(--cor-texto);
   transition: all 0.3s ease;
 }
 
 .home .botao:hover {
-  background-color: var(--cor-texto);
-  color: var(--cor-destaque);
-  border-color: var(--cor-principal);
+  background-color: var(--cor-destaque);
+  color: #fff;
+  border-color: var(--cor-destaque);
 }
 
 .sobre {
-  background-color: #fce4ec;
+  background-color: var(--cor-fundo);
   padding: 80px 20px;
   display: flex;
   justify-content: center;
@@ -177,7 +179,7 @@ body{
   width: 100%;
   gap: 50px;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--cor-sub-fundo);
   padding: 50px;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
@@ -215,7 +217,7 @@ body{
   
 .sobre-conteudo h2 {
   font-size: 2rem;
-  color: #111;
+  color: var(--cor-texto);
   margin-bottom: 15px;
 }
   
@@ -227,13 +229,13 @@ body{
   
 .sobre-conteudo p {
   font-size: 1rem;
-  color: #555;
+  color: var(--cor-texto);
   line-height: 1.6;
   margin-bottom: 20px;
 }
   
 .botao-sobre {
-  background-color: #ec4899;
+  background-color: var(--cor-destaque);
   color: #fff;
   text-decoration: none;
   padding: 12px 24px;
@@ -243,7 +245,7 @@ body{
 }
   
 .botao-sobre:hover {
-  background-color: #d63384;
+  background-color: var(--cor-texto);
 }
   
   /* Responsivo */
@@ -264,7 +266,7 @@ body{
 
 .servicos {
   padding: 80px 20px;
-  background: linear-gradient(135deg, var(--cor-destaque), #c777b9, #a855f7);
+  background: linear-gradient(135deg, var(--cor-destaque), var(--cor-principal), var(--cor-texto));
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
   text-align: center;
@@ -338,7 +340,7 @@ body{
 
 .localizacao {
   padding: 60px 20px;
-  background-color: #fff;
+  background-color: var(--cor-fundo);
   text-align: center;
 }
   
@@ -356,7 +358,7 @@ body{
   
 .container-localizacao p {
   font-size: 16px;
-  color: #555;
+  color: var(--cor-texto);
   margin-bottom: 30px;
 }
   
@@ -369,7 +371,7 @@ body{
   margin: 0 auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: var(--cor-sub-fundo);
 }
   
 .mapa iframe {
@@ -383,7 +385,7 @@ body{
 }
 
 footer {
-  background-color: rgb(227, 112, 190);
+  background-color: var(--cor-principal);
   color: #fff;
   padding: 50px 20px;
   font-family: 'Arial', sans-serif;
@@ -405,7 +407,7 @@ footer {
 }
 
 .logo-rodape img {
-  width: 150px;
+  width: 200px;
   height: auto;
 }
 
@@ -461,6 +463,16 @@ footer {
 
 .redes-sociais a {
   font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.redes-sociais a:hover {
+  color: #000;
 }
 
 /* Responsividade do rodapé */
